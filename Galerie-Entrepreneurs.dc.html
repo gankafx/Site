@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#0A0A0A;color:#F5F5F7;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  a{color:inherit;text-decoration:none}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#0A0A0A">
+  <header style="position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:rgba(10,10,10,.72);border-bottom:1px solid rgba(255,255,255,.07)">
+    <div style="max-width:1320px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <a href="Ganka.dc.html#portfolio" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;color:rgba(245,245,247,.7);transition:color .25s" style-hover="color:#fff"><span style="font-size:17px">←</span> Retour au site</a>
+      <div style="display:flex;align-items:center;gap:10px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,247,.45)"><span style="width:7px;height:7px;border-radius:50%;background:#1FA8F5;box-shadow:0 0 10px #1FA8F5"></span>Galerie</div>
+    </div>
+  </header>
+
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(48px,7vh,86px) 32px 30px">
+    <div style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1FA8F5;margin-bottom:18px">Direction artistique</div>
+    <h1 style="font-size:clamp(40px,6.5vw,82px);font-weight:700;letter-spacing:-.035em;line-height:1;margin:0 0 20px">Entrepreneurs.com.</h1>
+    <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:rgba(245,245,247,.55);max-width:760px;margin:0">Accompagnement graphique complet pour Entrepreneurs.com : miniatures YouTube, visuels publicitaires, couvertures de Reels, visuels Instagram et de nombreux autres supports, en garantissant une identité visuelle cohérente sur l'ensemble de leurs contenus.</p>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:30px 32px 100px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px">
+      <h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;white-space:nowrap">Miniatures YouTube</h2>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.14),transparent)"></div>
+      <span style="font-family:'Geist Mono',monospace;font-size:12px;color:rgba(245,245,247,.4)">{{ count }} visuels</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <sc-for list="{{ shots }}" as="s" hint-placeholder-count="55">
+        <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#121214;box-shadow:0 1px 0 rgba(255,255,255,.04);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s" style-hover="transform:translateY(-4px);box-shadow:0 28px 56px -24px rgba(0,0,0,.9),0 0 0 1px rgba(31,168,245,.4)">{{ s }}</div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:10px 32px 60px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px">
+      <h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;white-space:nowrap">Couvertures Reels</h2>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.14),transparent)"></div>
+      <span style="font-family:'Geist Mono',monospace;font-size:12px;color:rgba(245,245,247,.4)">{{ reelCount }} visuels</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+      <sc-for list="{{ reelShots }}" as="s" hint-placeholder-count="24">
+        <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#121214;box-shadow:0 1px 0 rgba(255,255,255,.04);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s" style-hover="transform:translateY(-4px);box-shadow:0 28px 56px -24px rgba(0,0,0,.9),0 0 0 1px rgba(31,168,245,.4)">{{ s }}</div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:10px 32px 100px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px">
+      <h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;white-space:nowrap">ADS Statiques</h2>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.14),transparent)"></div>
+      <span style="font-family:'Geist Mono',monospace;font-size:12px;color:rgba(245,245,247,.4)">{{ adsCount }} visuels</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+      <sc-for list="{{ adsShots }}" as="s" hint-placeholder-count="46">
+        <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#121214;box-shadow:0 1px 0 rgba(255,255,255,.04);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s" style-hover="transform:translateY(-4px);box-shadow:0 28px 56px -24px rgba(0,0,0,.9),0 0 0 1px rgba(31,168,245,.4)">{{ s }}</div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:10px 32px 100px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px">
+      <h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;white-space:nowrap">Autres visuels</h2>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.14),transparent)"></div>
+      <span style="font-family:'Geist Mono',monospace;font-size:12px;color:rgba(245,245,247,.4)">{{ autresCount }} visuels</span>
+    </div>
+    <div style="column-count:5;column-gap:14px">
+      <sc-for list="{{ autresShots }}" as="s" hint-placeholder-count="34">
+        <div style="break-inside:avoid;margin-bottom:16px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#121214;box-shadow:0 1px 0 rgba(255,255,255,.04);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s" style-hover="transform:translateY(-4px);box-shadow:0 28px 56px -24px rgba(0,0,0,.9),0 0 0 1px rgba(31,168,245,.4)">{{ s }}</div>
+      </sc-for>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const paths = Array.from({ length: 55 }, (_, i) => 'assets/gallery-entr-yt/ey-' + String(i + 1).padStart(2, '0') + '.png');
+    const shots = paths.map((p, i) => React.createElement('img', {
+      key: i, src: p, loading: 'lazy', alt: 'Miniature YouTube ' + (i + 1),
+      style: { width: '100%', display: 'block', aspectRatio: '16/9', objectFit: 'cover' }
+    }));
+    const visuelPaths = Array.from({ length: 4 }, (_, i) => 'assets/gallery-entr-ig/iv-' + String(i + 1).padStart(2, '0') + '.png');
+    const reelPaths = Array.from({ length: 24 }, (_, i) => 'assets/gallery-entr-ig/ir-' + String(i + 1).padStart(2, '0') + '.png');
+    const allReelPaths = visuelPaths.concat(reelPaths);
+    const reelShots = allReelPaths.map((p, i) => React.createElement('img', {
+      key: 'r' + i, src: p, loading: 'lazy', alt: 'Couverture Reel ' + (i + 1),
+      style: { width: '100%', display: 'block', aspectRatio: '9/16', objectFit: 'cover' }
+    }));
+    const adsPaths = Array.from({ length: 46 }, (_, i) => 'assets/gallery-entr-ads/if-' + String(i + 1).padStart(2, '0') + '.png');
+    const adsShots = adsPaths.map((p, i) => React.createElement('img', {
+      key: 'a' + i, src: p, loading: 'lazy', alt: 'ADS Statique ' + (i + 1),
+      style: { width: '100%', display: 'block', aspectRatio: '4/5', objectFit: 'cover' }
+    }));
+    const autresPaths = Array.from({ length: 34 }, (_, i) => 'assets/gallery-entr-autres/au-' + String(i + 1).padStart(2, '0') + '.png');
+    const autresShots = autresPaths.map((p, i) => React.createElement('img', {
+      key: 'au' + i, src: p, loading: 'lazy', alt: 'Visuel ' + (i + 1),
+      style: { width: '100%', display: 'block' }
+    }));
+    return { shots, count: paths.length, reelShots, reelCount: allReelPaths.length, adsShots, adsCount: adsPaths.length, autresShots, autresCount: autresPaths.length };
+  }
+}
+</script>
+</body>
+</html>

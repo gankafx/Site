@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background-color:#0A0A0A;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E"),radial-gradient(ellipse 92% 82% at 50% 40%,rgba(10,10,10,.72),rgba(10,10,10,0) 72%),linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:180px 180px,100% 100%,80px 80px,80px 80px;background-position:0 0,center,center,center;background-attachment:fixed;color:#F5F5F7;font-family:'Geist','Geist Fallback',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:#1FA8F5;color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0A0A0A}
+::-webkit-scrollbar-thumb{background:#222;border-radius:8px}
+a{color:inherit;text-decoration:none}
+@font-face{font-family:'Virgil';src:url('https://excalidraw.com/Virgil.woff2') format('woff2');font-display:swap}
+@keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.85}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes avisRow1{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes avisRow2{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.avis-track{display:flex;gap:18px;width:max-content}
+.avis-row:hover .avis-track{animation-play-state:paused}
+@keyframes strikeIn{from{transform:rotate(-2deg) scaleX(0)}to{transform:rotate(-2deg) scaleX(1)}}
+@keyframes magicienIn{0%{opacity:0;transform:translateX(-50%) rotate(-6deg) translateY(8px) scale(.85)}60%{opacity:1;transform:translateX(-50%) rotate(-6deg) translateY(-2px) scale(1.04)}100%{opacity:1;transform:translateX(-50%) rotate(-6deg)}}
+@keyframes wizPop{0%{opacity:0;transform:rotate(-18deg) scale(.2)}65%{opacity:1;transform:rotate(8deg) scale(1.18)}100%{opacity:1;transform:rotate(0deg) scale(1)}}
+@keyframes exclIn{0%{opacity:0;transform:translateY(6px) scale(.4)}70%{opacity:1;transform:translateY(-2px) scale(1.25)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes haloSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes writeIn{from{clip-path:inset(-25% 102% -25% -4%)}to{clip-path:inset(-25% -16% -25% -4%)}}
+@keyframes neonFlicker{0%,16%,20%,48%,52%,76%,100%{opacity:1;text-shadow:0 0 7px #cfeaff,0 0 16px #1FA8F5,0 0 34px #1FA8F5,0 0 70px rgba(31,168,245,.85),0 0 120px rgba(31,168,245,.55)}18%,50%{opacity:.5;text-shadow:0 0 4px #1FA8F5}78%,80%{opacity:.72;text-shadow:0 0 6px #1FA8F5,0 0 18px #1FA8F5}}
+@keyframes neonOutlineFlicker{0%,16%,20%,48%,52%,76%,100%{opacity:1;filter:drop-shadow(0 0 1px #cfeaff) drop-shadow(0 0 3px #6cc5ff) drop-shadow(0 0 7px #1FA8F5)}18%,50%{opacity:.5;filter:drop-shadow(0 0 2px #1FA8F5)}78%,80%{opacity:.72;filter:drop-shadow(0 0 1.5px #6cc5ff) drop-shadow(0 0 6px #1FA8F5)}}
+@media(max-width:840px){[data-nav-links]{display:none!important}}
+@media(max-width:1180px){[data-hero] [data-px]{display:none!important}}
+@media(max-width:680px){[data-portfolio-grid]{grid-template-columns:1fr 1fr!important;gap:12px!important}}
+@media(max-width:820px){[data-hero]{padding-top:120px!important;padding-bottom:60px!important}}
+@media(max-width:840px){[data-menu-toggle]{display:inline-flex!important}[data-contact-btn]{margin-left:auto!important;margin-right:auto!important}}
+details[data-cta]>summary{list-style:none;cursor:pointer;display:inline-flex}
+details[data-cta]>summary::-webkit-details-marker{display:none}
+details[data-cta][open] [data-cta-chevron]{transform:rotate(180deg)}
+details[data-cta]:not([open]) [data-cta-panel]{display:none!important}
+details[data-cta][open] [data-cta-panel]{animation:ctaReveal .45s cubic-bezier(.16,1,.3,1) both}
+@keyframes ctaReveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+<div ref="{{ setRoot }}" id="top" style="position:relative;width:100%">
+
+<!-- ================= NAV ================= -->
+<nav data-nav-bar style="position:fixed;top:0;left:0;right:0;z-index:120;display:flex;justify-content:center;padding:14px 16px;pointer-events:none">
+  <div style="pointer-events:auto;display:flex;align-items:center;gap:14px;width:100%;max-width:940px;background:rgba(16,16,18,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:9px 9px 9px 22px;box-shadow:0 18px 44px -18px rgba(0,0,0,.85)">
+    <a href="#top" style="display:flex;align-items:center;flex-shrink:0"><img src="assets/logo-kg-white.png" alt="Ganka" style="height:30px;width:auto;display:block" /></a>
+    <div data-nav-links style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px">
+      <a href="#top" data-nav="top" style="padding:9px 15px;border:1px solid transparent;border-radius:100px;font-size:14px;font-weight:500;color:rgba(245,245,247,.6);white-space:nowrap;transition:color .2s,background .2s,border-color .2s" style-hover="color:#fff">Accueil</a>
+      <a href="#portfolio" data-nav="portfolio" style="padding:9px 15px;border:1px solid transparent;border-radius:100px;font-size:14px;font-weight:500;color:rgba(245,245,247,.6);white-space:nowrap;transition:color .2s,background .2s,border-color .2s" style-hover="color:#fff">Portfolio</a>
+      <a href="#process" data-nav="process" style="padding:9px 15px;border:1px solid transparent;border-radius:100px;font-size:14px;font-weight:500;color:rgba(245,245,247,.6);white-space:nowrap;transition:color .2s,background .2s,border-color .2s" style-hover="color:#fff">Process</a>
+      <a href="#avis" data-nav="avis" style="padding:9px 15px;border:1px solid transparent;border-radius:100px;font-size:14px;font-weight:500;color:rgba(245,245,247,.6);white-space:nowrap;transition:color .2s,background .2s,border-color .2s" style-hover="color:#fff">Avis</a>
+      <a href="#faq" data-nav="faq" style="padding:9px 15px;border:1px solid transparent;border-radius:100px;font-size:14px;font-weight:500;color:rgba(245,245,247,.6);white-space:nowrap;transition:color .2s,background .2s,border-color .2s" style-hover="color:#fff">F.A.Q</a>
+    </div>
+    <a data-contact-btn href="#contact" style="flex-shrink:0;display:inline-flex;align-items:center;background:#1FA8F5;color:#fff;font-weight:600;font-size:14px;padding:11px 22px;border-radius:100px;box-shadow:0 10px 22px -8px rgba(31,168,245,.7);transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-1px);box-shadow:0 14px 30px -8px rgba(31,168,245,.85)">Me contacter</a>
+    <button data-menu-toggle aria-label="Menu" style="display:none;flex-shrink:0;width:42px;height:42px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(255,255,255,.04);color:#fff;cursor:pointer;align-items:center;justify-content:center;padding:0">
+      <span style="display:flex;flex-direction:column;gap:4px;align-items:center">
+        <span style="display:block;width:17px;height:2px;background:#fff;border-radius:2px"></span>
+        <span style="display:block;width:17px;height:2px;background:#fff;border-radius:2px"></span>
+        <span style="display:block;width:17px;height:2px;background:#fff;border-radius:2px"></span>
+      </span>
+    </button>
+  </div>
+  <div data-mobile-menu style="display:none;pointer-events:auto;position:absolute;top:72px;left:16px;right:16px;background:rgba(16,16,18,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:10px;box-shadow:0 24px 60px -18px rgba(0,0,0,.9);flex-direction:column;gap:2px">
+    <a href="#top" data-menu-link style="padding:13px 18px;border-radius:12px;font-size:15px;font-weight:500;color:rgba(245,245,247,.82)">Accueil</a>
+    <a href="#portfolio" data-menu-link style="padding:13px 18px;border-radius:12px;font-size:15px;font-weight:500;color:rgba(245,245,247,.82)">Portfolio</a>
+    <a href="#process" data-menu-link style="padding:13px 18px;border-radius:12px;font-size:15px;font-weight:500;color:rgba(245,245,247,.82)">Process</a>
+    <a href="#avis" data-menu-link style="padding:13px 18px;border-radius:12px;font-size:15px;font-weight:500;color:rgba(245,245,247,.82)">Avis</a>
+    <a href="#faq" data-menu-link style="padding:13px 18px;border-radius:12px;font-size:15px;font-weight:500;color:rgba(245,245,247,.82)">F.A.Q</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header data-hero style="position:relative;max-width:1280px;margin:0 auto;padding:210px 32px 90px;overflow:visible">
+  <svg viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.18;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 42%,#000,transparent 82%);mask-image:radial-gradient(ellipse 85% 75% at 50% 42%,#000,transparent 82%)">
+    <g fill="none" stroke="#1FA8F5" stroke-width="1">
+      <circle cx="880" cy="250" r="60"></circle>
+      <circle cx="880" cy="250" r="120"></circle>
+      <circle cx="880" cy="250" r="190" stroke-dasharray="4 6"></circle>
+      <line x1="880" y1="20" x2="880" y2="480"></line>
+      <line x1="650" y1="250" x2="1110" y2="250"></line>
+      <line x1="1000" y1="60" x2="1180" y2="240" stroke-dasharray="6 6"></line>
+      <rect x="980" y="360" width="150" height="100" rx="6"></rect>
+      <rect x="700" y="110" width="90" height="60" rx="4" stroke-dasharray="3 5"></rect>
+      <circle cx="880" cy="250" r="5" fill="#1FA8F5" stroke="none"></circle>
+      <line x1="120" y1="520" x2="320" y2="520"></line>
+      <line x1="120" y1="513" x2="120" y2="527"></line>
+      <line x1="170" y1="515" x2="170" y2="525"></line>
+      <line x1="220" y1="515" x2="220" y2="525"></line>
+      <line x1="270" y1="515" x2="270" y2="525"></line>
+      <line x1="320" y1="513" x2="320" y2="527"></line>
+    </g>
+  </svg>
+  <div style="position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:680px;height:680px;background:radial-gradient(circle,rgba(31,168,245,.22),transparent 62%);filter:blur(30px);pointer-events:none;z-index:0;animation:glowpulse 7s ease-in-out infinite"></div>
+  <!-- floating stat chips (depth layer) — each = one creation -->
+  <div data-px="21" data-base="rotate(-7deg)" style="position:absolute;top:118px;left:34px;z-index:1;transform:rotate(-7deg);opacity:0.6"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.6px;line-height:1;filter:none">👀</span>420 000 vues</span></div>
+  <div data-px="16" data-base="rotate(6deg)" style="position:absolute;top:150px;right:46px;z-index:1;transform:rotate(6deg);opacity:0.58"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.6px;line-height:1;filter:none">📈</span>520 000 impressions</span></div>
+  <div data-px="17" data-base="rotate(5deg)" style="position:absolute;top:330px;left:22px;z-index:1;transform:rotate(5deg);opacity:0.52"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.6px;line-height:1;filter:none">🚀</span>340 000 abonnés gagnés</span></div>
+  <div data-px="18" data-base="rotate(-6deg)" style="position:absolute;top:300px;right:38px;z-index:1;transform:rotate(-6deg);opacity:0.55"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.1px;line-height:1;filter:none">❤️</span>68 000 likes</span></div>
+  <div data-px="23" data-base="rotate(-4deg)" style="position:absolute;bottom:106px;left:58px;z-index:1;transform:rotate(-4deg);opacity:0.54"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.1px;line-height:1;filter:none">💬</span>4 800 commentaires</span></div>
+  <div data-px="21" data-base="rotate(5deg)" style="position:absolute;bottom:86px;right:56px;z-index:1;transform:rotate(5deg);opacity:0.55"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.1px;line-height:1;filter:none">🔄</span>11 000 partages</span></div>
+  <div data-px="22" data-base="rotate(3deg)" style="position:absolute;top:56px;left:118px;z-index:1;transform:rotate(3deg);opacity:0.46"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.1px;line-height:1;filter:none">👀</span>1,4 M de vues</span></div>
+  <div data-px="14" data-base="rotate(-3deg)" style="position:absolute;top:64px;right:168px;z-index:1;transform:rotate(-3deg);opacity:0.46"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.1px;line-height:1;filter:none">📈</span>1,1 M d’impressions</span></div>
+  <div data-px="21" data-base="rotate(4deg)" style="position:absolute;top:400px;left:40px;z-index:1;transform:rotate(4deg);opacity:0.5"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.1px;line-height:1;filter:none">💾</span>7 200 enregistrements</span></div>
+  <div data-px="23" data-base="rotate(-4deg)" style="position:absolute;bottom:150px;right:300px;z-index:1;transform:rotate(-4deg);opacity:0.48"><span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;background:rgba(18,18,21,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);box-shadow:0 12px 30px -12px rgba(0,0,0,.8);font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:12.1px;line-height:1;filter:none">🌐</span>18 000 visites</span></div>
+  <div data-px="40" data-base="rotate(-9deg)" style="position:absolute;top:255px;left:68px;z-index:3;transform:rotate(-9deg);opacity:0.82;filter:blur(1.4px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:14.2px;line-height:1;filter:none">🖱️</span>24 000 clics</span></div>
+  <div data-px="43" data-base="rotate(8deg)" style="position:absolute;bottom:150px;right:118px;z-index:3;transform:rotate(8deg);opacity:0.82;filter:blur(1.6px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:14.2px;line-height:1;filter:none">🎬</span>380 000 min de visionnage</span></div>
+  <div data-px="38" data-base="rotate(-3deg)" style="position:absolute;bottom:200px;left:46px;z-index:3;transform:rotate(-3deg);opacity:0.46;filter:blur(2.3px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:15px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:15.8px;line-height:1;filter:none">🚀</span>120 500 abonnés gagnés</span></div>
+  <div data-px="37" data-base="rotate(-5deg)" style="position:absolute;top:420px;right:82px;z-index:3;transform:rotate(-5deg);opacity:0.8;filter:blur(1.3px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:14.2px;line-height:1;filter:none">🎯</span>1 250 leads générés</span></div>
+  <div data-px="40" data-base="rotate(4deg)" style="position:absolute;top:430px;left:148px;z-index:3;transform:rotate(4deg);opacity:0.5;filter:blur(2px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:14.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:15.2px;line-height:1;filter:none">🛒</span>950 ventes</span></div>
+  <div data-px="40" data-base="rotate(6deg)" style="position:absolute;bottom:54px;right:198px;z-index:3;transform:rotate(6deg);opacity:0.78;filter:blur(1.7px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:14.2px;line-height:1;filter:none">👀</span>860 000 vues</span></div>
+  <div data-px="37" data-base="rotate(7deg)" style="position:absolute;top:200px;right:30px;z-index:3;transform:rotate(7deg);opacity:0.7;filter:blur(1.5px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:14.2px;line-height:1;filter:none">📊</span>CTR de 11,8 %</span></div>
+  <div data-px="39" data-base="rotate(-4deg)" style="position:absolute;top:360px;right:24px;z-index:3;transform:rotate(-4deg);opacity:0.4;filter:blur(2.5px)"><span style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:100px;background:rgba(20,20,24,.82);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);box-shadow:0 16px 36px -12px rgba(0,0,0,.85);font-family:'Geist Mono',monospace;font-size:15px;font-weight:600;color:#fff;white-space:nowrap"><span style="font-size:15.8px;line-height:1;filter:none">📅</span>320 RDV pris</span></div>
+
+  <div style="position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:48px">
+
+    <!-- left -->
+    <div style="width:100%;max-width:840px;margin:0 auto;text-align:center">
+      <h1 data-reveal style="opacity:0;transform:translateY(20px);font-size:clamp(38px,5.8vw,74px);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin:0 0 26px">le <span style="position:relative;display:inline-block;white-space:nowrap"><span style="color:#fff">graphiste</span><span style="position:absolute;left:-4%;right:-7%;top:55%;height:4px;background:#1FA8F5;border-radius:3px;transform:rotate(-2deg);transform-origin:left center;box-shadow:0 0 10px rgba(31,168,245,.55);animation:strikeIn 1.2s cubic-bezier(.16,1,.3,1) .4s both;animation-play-state:paused" data-title-anim></span><span style="position:absolute;left:50%;top:-.66em;transform:translateX(-50%) rotate(-6deg);font-family:'Virgil','Caveat',cursive;font-weight:700;color:#1FA8F5;font-size:.82em;line-height:1;white-space:nowrap;text-shadow:0 0 16px rgba(31,168,245,.5)"><span style="display:inline-block;clip-path:inset(-25% 102% -25% -4%);padding-right:.18em;animation:writeIn 2.3s cubic-bezier(.55,.06,.42,.96) .7s forwards;animation-play-state:paused" data-title-anim>magicien</span><img src="assets/wizard.png" alt="" style="display:inline-block;vertical-align:-.22em;width:.5em;height:.5em;margin-left:.16em;animation:wizPop 1s cubic-bezier(.16,1,.3,1) 3.1s both;animation-play-state:paused" data-title-anim></span></span> préféré de<br>ton <span style="position:relative;display:inline-block;white-space:nowrap"><span style="color:#1FA8F5">entrepreneur</span></span> préféré<span style="display:inline-block;font-family:'Caveat',cursive;font-weight:700;color:#1FA8F5;text-shadow:0 0 14px rgba(31,168,245,.45);animation:exclIn .9s cubic-bezier(.16,1,.3,1) 3.6s both;animation-play-state:paused" data-title-anim>&nbsp;!</span></h1>
+      <p data-reveal data-reveal-delay="120" style="opacity:0;transform:translateY(20px);font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:rgba(245,245,247,.6);max-width:560px;margin:0 auto 30px">J'aide les entrepreneurs, créateurs de contenu et entreprises à développer une image de marque forte grâce à des visuels percutants, conçus pour attirer l'attention, inspirer confiance et obtenir des résultats.</p>
+      <div data-reveal data-reveal-delay="180" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;align-items:center;gap:30px">
+        <a href="#portfolio" style="display:inline-flex;align-items:center;gap:10px;background:#1FA8F5;color:#fff;padding:16px 28px;border-radius:13px;font-weight:600;font-size:15.5px;box-shadow:0 14px 40px -10px rgba(31,168,245,.7);transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-3px);box-shadow:0 22px 55px -10px rgba(31,168,245,.85)">Voir mes réalisations <span style="font-size:18px">↗</span></a>
+        <span style="display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.025);font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,245,247,.65)"><span style="width:7px;height:7px;border-radius:50%;background:#1FA8F5;box-shadow:0 0 10px #1FA8F5"></span>+ de 1.000 clients accompagnés</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= CLIENTS ================= -->
+<section style="background:#fff;padding:40px 0;overflow:hidden">
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px 22px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(10,10,10,.45);text-align:center">Ils m'ont fait confiance</div>
+  <div style="display:flex;width:max-content;animation:marquee 150s linear infinite">
+    <div style="display:flex;align-items:center;gap:16px;padding:0 8px">
+      <sc-for list="{{ clientsLoop }}" as="c" hint-placeholder-count="12">
+        <sc-if value="{{ c.cta }}" hint-placeholder-val="{{ false }}">
+          <a href="#contact" style="display:flex;align-items:center;gap:9px;padding:11px 22px;border-radius:100px;background:#1FA8F5;flex-shrink:0;box-shadow:0 10px 22px -8px rgba(31,168,245,.7);text-decoration:none;cursor:pointer">
+            <span style="font-weight:700;font-size:15px;color:#fff;white-space:nowrap;font-family:'Geist',sans-serif">Pourquoi pas vous&nbsp;?</span>
+            <span style="color:#fff;font-size:16px;line-height:1">↗</span>
+          </a>
+        </sc-if>
+        <sc-if value="{{ c.normal }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:11px;padding:7px 18px 7px 7px;border-radius:100px;background:#f3f3f4;border:1px solid rgba(10,10,10,.07);flex-shrink:0">
+            {{ c.avatarEl }}
+            <span style="font-weight:600;font-size:14.5px;color:#191919;white-space:nowrap;font-family:'Geist',sans-serif">{{ c.name }}</span>
+          </div>
+        </sc-if>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio" style="scroll-margin-top:84px;max-width:1280px;margin:0 auto;padding:clamp(54px,8vh,88px) 32px">
+  <div data-reveal style="opacity:0;transform:translateY(20px);text-align:center;max-width:680px;margin:0 auto 54px">
+    <div style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1FA8F5;margin-bottom:18px">Portfolio</div>
+    <h2 style="font-size:clamp(34px,5vw,58px);font-weight:600;letter-spacing:-.03em;line-height:1.04;margin-bottom:18px">Une sélection de réalisations.</h2>
+    <p style="font-size:16px;color:rgba(245,245,247,.55);line-height:1.6">Des projets pensés pour performer. Cliquez sur une catégorie pour découvrir les projets.</p>
+  </div>
+  <div data-portfolio-grid style="display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));gap:22px">
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+      <a data-card href="{{ p.href }}" style="display:block;position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.09);box-shadow:0 1px 0 rgba(255,255,255,.04);cursor:pointer;background:#0d0d0f;aspect-ratio:4/5">
+        <div data-card-img style="position:absolute;inset:0;transition:transform .65s cubic-bezier(.16,1,.3,1)">
+          {{ p.coverEl }}
+        </div>
+        <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(6,6,7,.94) 0%,rgba(6,6,7,.55) 32%,rgba(6,6,7,.08) 62%,transparent 100%)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px;display:flex;flex-direction:column;align-items:flex-start">
+          <div style="font-size:clamp(23px,2.3vw,28px);font-weight:700;letter-spacing:-.02em;line-height:1.04;margin-bottom:7px">{{ p.title }}</div>
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#1FA8F5;white-space:nowrap">{{ p.subtitle }}</div>
+          <span data-card-cta style="margin-top:15px;opacity:0;transform:translateY(7px);transition:opacity .35s,transform .35s;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:8px 15px;border-radius:10px;font-size:13px;font-weight:500;backdrop-filter:blur(6px)">Voir le projet <span>↗</span></span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ============ PROCESS + POURQUOI MOI (2 colonnes) ============ -->
+<section id="process" style="scroll-margin-top:84px;background:rgba(255,255,255,.012);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(54px,8vh,88px) 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:clamp(48px,7vw,96px);align-items:stretch">
+
+    <!-- Process column -->
+    <div>
+      <div data-reveal style="opacity:0;transform:translateY(20px);margin-bottom:40px">
+        <div style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1FA8F5;margin-bottom:16px">Process</div>
+        <h2 style="font-size:clamp(30px,4vw,46px);font-weight:600;letter-spacing:-.03em;line-height:1.06">Un déroulé simple et carré.</h2>
+      </div>
+      <div style="position:relative">
+        <div style="position:absolute;left:23px;top:24px;bottom:24px;width:1px;background:linear-gradient(180deg,rgba(31,168,245,.5),rgba(31,168,245,.15));z-index:0"></div>
+        
+        <div data-reveal  style="opacity:0;transform:translateY(16px);position:relative;display:flex;gap:18px;padding-bottom:26px">
+          <div style="position:relative;z-index:1;flex-shrink:0;width:48px;height:48px;border-radius:50%;background:#0A0A0A;border:1px solid rgba(31,168,245,.5);display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-weight:500;font-size:14px;color:#1FA8F5;">01</div>
+          <div style="padding-top:5px"><h3 style="font-size:18px;font-weight:600;margin-bottom:6px">Brief</h3><p style="font-size:14px;color:rgba(245,245,247,.52);line-height:1.6">On définit vos objectifs, votre cible et votre univers visuel.</p></div>
+        </div>
+        
+        <div data-reveal data-reveal-delay="90" style="opacity:0;transform:translateY(16px);position:relative;display:flex;gap:18px;padding-bottom:26px">
+          <div style="position:relative;z-index:1;flex-shrink:0;width:48px;height:48px;border-radius:50%;background:#0A0A0A;border:1px solid rgba(31,168,245,.5);display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-weight:500;font-size:14px;color:#1FA8F5;">02</div>
+          <div style="padding-top:5px"><h3 style="font-size:18px;font-weight:600;margin-bottom:6px">Création</h3><p style="font-size:14px;color:rgba(245,245,247,.52);line-height:1.6">Je conçois les premières pistes créatives, soignées et impactantes.</p></div>
+        </div>
+        
+        <div data-reveal data-reveal-delay="180" style="opacity:0;transform:translateY(16px);position:relative;display:flex;gap:18px;padding-bottom:26px">
+          <div style="position:relative;z-index:1;flex-shrink:0;width:48px;height:48px;border-radius:50%;background:#0A0A0A;border:1px solid rgba(31,168,245,.5);display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-weight:500;font-size:14px;color:#1FA8F5;">03</div>
+          <div style="padding-top:5px"><h3 style="font-size:18px;font-weight:600;margin-bottom:6px">Révisions</h3><p style="font-size:14px;color:rgba(245,245,247,.52);line-height:1.6">On affine ensemble jusqu’au résultat parfait, sans compromis.</p></div>
+        </div>
+        
+        <div data-reveal data-reveal-delay="270" style="opacity:0;transform:translateY(16px);position:relative;display:flex;gap:18px;">
+          <div style="position:relative;z-index:1;flex-shrink:0;width:48px;height:48px;border-radius:50%;background:#1FA8F5;border:1px solid #1FA8F5;display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-weight:500;font-size:14px;color:#fff;box-shadow:0 0 26px rgba(31,168,245,.5)">04</div>
+          <div style="padding-top:5px"><h3 style="font-size:18px;font-weight:600;margin-bottom:6px">Livraison</h3><p style="font-size:14px;color:rgba(245,245,247,.52);line-height:1.6">Fichiers finaux livrés dans tous les formats, prêts à publier.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pourquoi moi column -->
+    <div style="display:flex;flex-direction:column">
+      <div data-reveal style="opacity:0;transform:translateY(20px);margin-bottom:40px">
+        <div style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1FA8F5;margin-bottom:16px">Pourquoi moi</div>
+        <h2 style="font-size:clamp(30px,4vw,46px);font-weight:600;letter-spacing:-.03em;line-height:1.06">Des résultats, pas seulement des jolis visuels.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;flex:1;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden">
+        <div style="border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center">
+        <div data-reveal  style="opacity:0;transform:translateY(16px);padding:18px 24px">
+          <div style="font-size:clamp(26px,2.8vw,38px);font-weight:600;letter-spacing:-.03em;white-space:nowrap;background:linear-gradient(180deg,#fff,rgba(255,255,255,.5));-webkit-background-clip:text;background-clip:text;color:transparent">+10.000</div>
+          <div style="font-size:14px;color:rgba(245,245,247,.5);margin-top:4px">projets réalisés</div>
+        </div></div>
+        <div style="border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center">
+        <div data-reveal data-reveal-delay="80" style="opacity:0;transform:translateY(16px);padding:18px 24px">
+          <div style="font-size:clamp(26px,2.8vw,38px);font-weight:600;letter-spacing:-.03em;white-space:nowrap;background:linear-gradient(180deg,#fff,rgba(255,255,255,.5));-webkit-background-clip:text;background-clip:text;color:transparent">+100M</div>
+          <div style="font-size:14px;color:rgba(245,245,247,.5);margin-top:4px">vues générées</div>
+        </div></div>
+        <div style="border-right:1px solid rgba(255,255,255,.08);display:flex;align-items:center">
+        <div data-reveal data-reveal-delay="160" style="opacity:0;transform:translateY(16px);padding:18px 24px">
+          <div style="font-size:clamp(26px,2.8vw,38px);font-weight:600;letter-spacing:-.03em;white-space:nowrap;background:linear-gradient(180deg,#fff,rgba(255,255,255,.5));-webkit-background-clip:text;background-clip:text;color:transparent">+1.000</div>
+          <div style="font-size:14px;color:rgba(245,245,247,.5);margin-top:4px">clients accompagnés</div>
+        </div></div>
+        <div style="display:flex;align-items:center">
+        <div data-reveal data-reveal-delay="240" style="opacity:0;transform:translateY(16px);padding:18px 24px">
+          <div style="font-size:clamp(26px,2.8vw,38px);font-weight:600;letter-spacing:-.03em;white-space:nowrap;color:#1FA8F5">2018</div>
+          <div style="font-size:14px;color:rgba(245,245,247,.5);margin-top:4px">à votre service depuis</div>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= AVIS ================= -->
+<section id="avis" style="scroll-margin-top:84px;max-width:none;margin:0 auto;padding:clamp(54px,8vh,88px) 0;overflow:hidden">
+  <div data-reveal style="opacity:0;transform:translateY(20px);text-align:center;margin-bottom:60px">
+    <div style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1FA8F5;margin-bottom:18px">Avis clients</div>
+    <h2 style="font-size:clamp(34px,5vw,58px);font-weight:600;letter-spacing:-.03em;line-height:1.04">Ce qu'ils en disent.</h2>
+  </div>
+  <div data-reveal data-reveal-noshift style="opacity:0;position:relative">
+    <div class="avis-row" style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)">
+      <div class="avis-track" data-avis-track style="display:flex;gap:18px;width:max-content;animation:avisRow1 60s linear infinite;animation-play-state:paused">
+        <sc-for list="{{ reviewsRow1 }}" as="r" hint-placeholder-count="10">
+          <div style="{{ r.cardStyle }}">
+            <div style="display:flex;gap:2px;margin-bottom:13px;color:#1FA8F5;font-size:13px;letter-spacing:2px">★★★★★</div>
+            <p style="font-size:14px;line-height:1.6;color:rgba(245,245,247,.8);margin:0">{{ r.quote }}</p>
+            <div style="display:flex;align-items:center;gap:11px;margin-top:auto;padding-top:22px">
+              {{ r.avatarEl }}
+              <div style="min-width:0">
+                <div style="font-weight:600;font-size:14px;line-height:1.3">{{ r.name }}</div>
+                <div style="font-size:12px;color:#1FA8F5;line-height:1.4">{{ r.followers }}</div>
+                <div style="font-size:12px;color:rgba(245,245,247,.45);line-height:1.4">{{ r.role }}</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div class="avis-row" style="overflow:hidden;margin-top:18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)">
+      <div class="avis-track" data-avis-track style="display:flex;gap:18px;width:max-content;animation:avisRow2 60s linear infinite;animation-play-state:paused">
+        <sc-for list="{{ reviewsRow2 }}" as="r" hint-placeholder-count="10">
+          <div style="{{ r.cardStyle }}">
+            <div style="display:flex;gap:2px;margin-bottom:13px;color:#1FA8F5;font-size:13px;letter-spacing:2px">★★★★★</div>
+            <p style="font-size:14px;line-height:1.6;color:rgba(245,245,247,.8);margin:0">{{ r.quote }}</p>
+            <div style="display:flex;align-items:center;gap:11px;margin-top:auto;padding-top:22px">
+              {{ r.avatarEl }}
+              <div style="min-width:0">
+                <div style="font-weight:600;font-size:14px;line-height:1.3">{{ r.name }}</div>
+                <div style="font-size:12px;color:#1FA8F5;line-height:1.4">{{ r.followers }}</div>
+                <div style="font-size:12px;color:rgba(245,245,247,.45);line-height:1.4">{{ r.role }}</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="scroll-margin-top:84px;max-width:840px;margin:0 auto;padding:clamp(54px,8vh,88px) 32px">
+  <div data-reveal style="opacity:0;transform:translateY(20px);text-align:center;margin-bottom:54px">
+    <div style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1FA8F5;margin-bottom:18px">FAQ</div>
+    <h2 style="font-size:clamp(34px,5vw,52px);font-weight:600;letter-spacing:-.03em;line-height:1.04">Questions fréquentes.</h2>
+  </div>
+  <div data-reveal style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;gap:12px">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+      <div style="border:1px solid rgba(255,255,255,.09);border-radius:14px;background:rgba(255,255,255,.02);overflow:hidden">
+        <button onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;background:transparent;border:0;color:#F5F5F7;cursor:pointer;text-align:left;font-family:inherit;font-size:17px;font-weight:500">
+          {{ f.q }}
+          <span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:18px;color:#1FA8F5;transition:transform .3s;transform:{{ f.rot }}">+</span>
+        </button>
+        <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 26px 24px;font-size:15.5px;line-height:1.65;color:rgba(245,245,247,.6)">{{ f.a }}</div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="contact" style="scroll-margin-top:84px;position:relative;max-width:1280px;margin:0 auto;padding:clamp(54px,8vh,88px) 32px">
+  <div style="position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(31,168,245,.25);background:radial-gradient(120% 140% at 50% 0%,rgba(31,168,245,.22),rgba(14,14,16,.6) 55%);padding:clamp(60px,9vw,110px) 32px;text-align:center">
+    <div style="position:absolute;left:50%;top:-40%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(31,168,245,.3),transparent 60%);filter:blur(40px);pointer-events:none;animation:glowpulse 6s ease-in-out infinite"></div>
+    <div data-reveal style="opacity:0;transform:translateY(20px);position:relative;z-index:1;max-width:820px;margin:0 auto">
+      <h2 style="font-size:clamp(36px,6vw,72px);font-weight:600;letter-spacing:-.035em;line-height:1.02;margin-bottom:28px">Prêt à donner une nouvelle dimension à votre image ?</h2>
+      <p style="font-size:18px;color:rgba(245,245,247,.6);margin-bottom:42px;line-height:1.6">Parlons de votre projet. Réponse rapide, devis clair, et des visuels à la hauteur de vos ambitions.</p>
+      <details data-cta style="margin:0 auto">
+        <summary data-cta-toggle style="margin:0 auto;align-items:center;gap:11px;background:#1FA8F5;color:#fff;padding:18px 38px;border-radius:14px;font-weight:600;font-size:16.5px;font-family:inherit;border:0;box-shadow:0 18px 50px -12px rgba(31,168,245,.8);transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-3px);box-shadow:0 26px 65px -12px rgba(31,168,245,.95)">Discutons de votre projet <span data-cta-chevron style="font-size:15px;transition:transform .35s cubic-bezier(.16,1,.3,1)">▾</span></summary>
+      <div data-cta-panel style="max-width:430px;margin:18px auto 0;display:flex;flex-direction:column;gap:12px">
+        <a href="https://wa.me/33770251077" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);text-align:left;transition:transform .3s,border-color .3s,background .3s" style-hover="transform:translateY(-2px);border-color:rgba(37,211,102,.5);background:rgba(37,211,102,.06)">
+          <span style="flex-shrink:0;width:46px;height:46px;border-radius:12px;background:rgba(37,211,102,.14);border:1px solid rgba(37,211,102,.4);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.04c-.24.68-1.42 1.32-1.95 1.36-.52.05-.98.24-3.3-.69-2.79-1.1-4.56-3.96-4.7-4.15-.14-.18-1.12-1.49-1.12-2.84 0-1.35.71-2.01.96-2.29.25-.27.54-.34.72-.34.18 0 .36 0 .52.01.17.01.39-.06.61.47.24.55.79 1.9.86 2.04.07.14.12.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.21 1.36.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.6.75 1.87.89.27.14.46.2.52.32.07.11.07.64-.17 1.32z"/></svg></span>
+          <span style="flex:1;line-height:1.35"><span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:#fff">WhatsApp <span style="display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:500;color:#25D366"><span style="width:7px;height:7px;border-radius:50%;background:#25D366;box-shadow:0 0 8px #25D366"></span>En ligne</span></span><span style="display:block;font-size:13px;color:rgba(245,245,247,.55);margin-top:2px">Disponible 24h/24 - 7j/7</span></span>
+          <span style="flex-shrink:0;font-size:11px;font-weight:600;letter-spacing:.05em;color:#25D366;border:1px solid rgba(37,211,102,.4);background:rgba(37,211,102,.1);padding:5px 10px;border-radius:8px">LE + RAPIDE</span>
+        </a>
+        <a href="mailto:gankafx@gmail.com" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);text-align:left;transition:transform .3s,border-color .3s,background .3s" style-hover="transform:translateY(-2px);border-color:rgba(31,168,245,.5);background:rgba(31,168,245,.06)">
+          <span style="flex-shrink:0;width:46px;height:46px;border-radius:12px;background:rgba(31,168,245,.12);border:1px solid rgba(31,168,245,.4);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="#1FA8F5" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="#1FA8F5" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+          <span style="flex:1;line-height:1.35"><span style="display:block;font-size:16px;font-weight:600;color:#fff">Email</span><span style="display:block;font-size:13px;color:rgba(245,245,247,.55);margin-top:2px">gankafx@gmail.com</span></span>
+          <span style="flex-shrink:0;color:rgba(245,245,247,.4);font-size:18px">↗</span>
+        </a>
+      </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEON FINALE ================= -->
+<section aria-hidden="true" style="position:relative;display:flex;justify-content:center;align-items:center;padding:clamp(40px,9vh,90px) 24px clamp(8px,2vh,24px);background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.2) 55%,rgba(0,0,0,.6) 82%,#000 98%)">
+  <div style="position:relative;z-index:1;font-family:'Geist',sans-serif;font-weight:800;font-size:clamp(110px,28vw,360px);line-height:.86;letter-spacing:.02em;color:transparent;-webkit-text-stroke:2px #cfeeff;text-stroke:2px #cfeeff;filter:drop-shadow(0 0 6px rgba(120,195,255,.9)) drop-shadow(0 0 26px rgba(56,140,255,.55));animation:neonOutlineFlicker 4.6s infinite;user-select:none">GANKA</div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(to top,#000 0%,#000 35%,rgba(0,0,0,.6) 72%,transparent 100%);pointer-events:none;z-index:2"></div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer style="background:#000">
+  <div style="max-width:1280px;margin:0 auto;padding:24px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;font-size:13px;color:rgba(245,245,247,.35)">
+    <span>© 2026 Ganka. Tous droits réservés.</span>
+    <div style="display:flex;align-items:center;gap:18px">
+      <a href="https://instagram.com/ganka" target="_blank" rel="noopener noreferrer" title="Instagram" style="color:#1FA8F5;display:flex;transition:opacity .2s" style-hover="opacity:.7"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.linkedin.com/in/mathieu-rubichon-644a972b8/" target="_blank" rel="noopener noreferrer" title="LinkedIn" style="color:#1FA8F5;display:flex;transition:opacity .2s" style-hover="opacity:.7"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg></a>
+      <a href="https://x.com/gankafx" target="_blank" rel="noopener noreferrer" title="X" style="color:#1FA8F5;display:flex;transition:opacity .2s" style-hover="opacity:.7"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8-9.2L1 2h7l4.8 6.3zM17.7 20h1.9L7.4 4H5.4z"/></svg></a>
+    </div>
+    <span style="font-family:'Geist Mono',monospace;letter-spacing:.05em">Conçu pour convertir.</span>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { faqOpen: -1 };
+
+  projects = [
+    { title: 'HumainsTV', subtitle: 'Direction artistique', href: 'Galerie-Tema.dc.html', cols: 6, tiles: Array.from({length:30},(_,i)=>({img:'assets/cover-tema/ct-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Entrepreneurs.com', subtitle: 'Direction artistique', href: 'Galerie-Entrepreneurs.dc.html', cols: 4, tiles: Array.from({length:24},(_,i)=>({img:'assets/cover-ey/ce-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Agence Illustre!', subtitle: 'Miniatures YouTube', href: 'Galerie-Illustre.dc.html', tiles: Array.from({length:24},(_,i)=>({img:'assets/cover-il/ci-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Éditions Jikji', subtitle: 'Couvertures livres', href: 'Galerie-Edition-Jikji.dc.html', cols: 4, tiles: Array.from({length:23},(_,i)=>({img:'assets/cover-jk/cj-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Numadeo', subtitle: 'Identités visuelles', href: 'Galerie-Numadeo.dc.html', cols: 2, tiles: Array.from({length:26},(_,i)=>({img:'assets/cover-nm/cnm-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Grand Angle', subtitle: 'Miniatures YouTube', href: 'Galerie-Grand-Angle.dc.html', tiles: Array.from({length:24},(_,i)=>({img:'assets/cover-ga/cg-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Téma', subtitle: 'Direction artistique', href: 'Galerie-Tema-Lives.dc.html', cols: 6, tiles: Array.from({length:28},(_,i)=>({img:'assets/cover-tema2/ct2-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Le Temple RH', subtitle: 'Direction artistique', href: 'Galerie-Temple-RH.dc.html', cols: 4, tiles: Array.from({length:24},(_,i)=>({img:'assets/cover-trh/ctrh-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Papel Média', subtitle: 'ADS statiques', href: 'Galerie-Papel-Media.dc.html', cols: 4, tiles: Array.from({length:24},(_,i)=>({img:'assets/cover/c-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+    { title: 'Autres clients', subtitle: 'Miniatures YouTube', href: 'Galerie-Autres-Clients.dc.html', cols: 5, tiles: Array.from({length:48},(_,i)=>({img:'assets/cover-ac/cac-'+String(i+1).padStart(2,'0')+'.jpg'})) },
+  ];
+
+  clients = ['Pierre Gourdon', 'Kameto', 'Maxime Lopez', 'HumainsTV', 'Skyyart', 'Grand Angle', 'Oussama Ammar', 'ActuFoot', 'Alec Henry', 'Numadeo', 'PFUT', 'Le Crayon', 'Jody Cavalie', 'Entrepreneurs.com', 'Alphacast', 'FC Fleury 91', 'Jean-Pierre Nadir', 'Illustre!', 'InterludeFrance', 'Irvin Cardona', 'UniversTennis', 'PapelMedia', 'La Menace', 'Edition Jikji', 'Thang Nguyen', 'UniverseFootball', 'Gamze Kgln', 'Marignane-Gignac-Côte Bleue FC', 'Équipe des Comores de football', 'Edouard Clerc', 'Delphine Pinon', 'Carolin Arthaud', 'Michel Khoury', 'Paf', 'Axoskill', 'Conkerax', 'Les Geeks des Chiffres', 'Conversations avant la fin du monde', 'Charle Gave', 'Loic Durand', 'Concon TV', 'Téma', 'Box to box agency', 'Janine Bonaggiunta', 'Martin Blachier', 'Laurence Plumey', 'Maud Grenier', 'Capitaine Kebab', 'Le Déclic'];
+
+  reviews = [
+    { quote: "« Nous travaillons avec Mathieu sur l'ensemble de notre communication visuelle : visuels LinkedIn, carrousels, miniatures YouTube, supports pour nos événements, visuels pour notre site… Il comprend rapidement nos besoins et livre systématiquement en moins de 24 heures. C'est un véritable partenaire sur lequel nous pouvons compter pour allier rapidité, qualité et efficacité. Je recommande sans hésiter. »", name: 'Maud Grenier', followers: 'CEO · Le Temple RH', role: '+ 120.000 abonnés cumulés', img: 'assets/maud-grenier-avis.jpg', link: 'https://www.letemplerh.com/', featured: true },
+    { quote: "« Nous collaborons avec Mathieu sur la création de miniatures YouTube destinées à plusieurs de nos clients. Il s'adapte facilement à des univers très différents, comprend rapidement les attentes et livre toujours des visuels de qualité dans des délais très courts. C'est un vrai plus de pouvoir compter sur quelqu'un d'aussi réactif et polyvalent. »", name: 'Louis Carole', followers: 'Co-fondateur · Agence Illustre', role: 'Spécialiste du podcast vidéo en France', img: 'assets/louis-carole-avis.jpg', link: 'https://agenceillustre.fr/', featured: true },
+    { quote: "« Cela fait bientôt 4 ans que je travaille avec Mathieu, et c'est devenu un partenaire de confiance. Son sens du design, sa créativité et sa capacité à comprendre rapidement les besoins font toute la différence. Il est réactif, à l'écoute et toujours soucieux de livrer un travail de grande qualité. Chaque projet est réalisé avec sérieux et précision. Je le recommande sans hésitation à toute personne recherchant un graphiste talentueux et fiable. »", name: 'Leelou Siegel', followers: 'Owner & COO · Numadeo', role: "L'agence personal branding numéro 1", img: 'assets/leelou-siegel-avis.jpg', link: 'https://www.numadeo.fr/', featured: true },
+    { quote: "« Killer. Mathieu est réactif, rapide, fiable, et nous a sauvés sur des productions à multiples reprises, avec une qualité toujours au rendez-vous. Je recommanderais à tout le monde les yeux fermés. »", name: 'Hubert Smoleń', followers: 'Fondateur · Papel Media', role: "Créateurs de systèmes d'acquisition depuis 2015", img: 'assets/hubert-smolen-avis.jpg', link: 'https://papel.media/', featured: true },
+    { quote: "« Il convertit nos idées en visuels de qualité, impactants, et surtout extrêmement rapidement. Sa très grande amplitude horaire permet une réactivité rare. Nous recommandons activement. »", name: 'Loic Durand', followers: 'Influenceur', role: '+ 50.000 abonnés cumulés', img: 'assets/loic-durand-avis.jpg', featured: true },
+    { quote: "« Cela fait des années que nous travaillons avec Mathieu, il a toujours apporté une entière satisfaction. Un point important que je dois souligner, c'est la qualité de son travail et la rapidité d'exécution avec laquelle il réalise les projets. Nous travaillons surtout avec lui sur la direction artistique des miniatures sur YouTube et sur Podcast. Je le recommande sans aucune hésitation : il est sympa, réactif et professionnel. »", name: 'Nicolas Piatkowski', followers: 'Fondateur · Les Geeks des Chiffres', role: '+500.000 abonnés cumulés', img: 'assets/geeks-chiffres-avis.jpg', featured: true },
+    { quote: "« Je collabore avec Mathieu depuis plus d'un an sur les miniatures YouTube de ma chaîne, et c'est clairement l'un des meilleurs investissements que j'ai faits pour mon contenu. Ce qui fait la différence, c'est sa capacité à comprendre une ligne éditoriale en profondeur : il ne se contente pas d'exécuter un brief, il propose, challenge et apporte une vraie vision créative. Le CTR parle pour lui. Côté process, c'est fluide et professionnel : briefs compris du premier coup, délais tenus, communication claire sur WhatsApp. Au-delà de la qualité technique, c'est aussi un plaisir de bosser avec lui : bonne énergie, force de proposition et fiabilité à 100%. Je le recommande sans hésitation à toute personne sérieuse qui veut faire passer ses miniatures au niveau supérieur. »", name: 'Pierre Gourdon', followers: 'Influenceur', role: '+15.000 abonnés cumulés', img: 'assets/pierre-gourdon-avis.jpg', featured: true },
+    { quote: "« Mathieu est un grand professionnel, capable de sublimer vos projets et de leur donner forme avec beaucoup de justesse. Toujours réactif et force de proposition, il rend chaque collaboration à la fois efficace et agréable. C'est un véritable plaisir de pouvoir travailler avec lui chaque semaine. »", name: 'Capitaine Kebab', followers: 'Influenceur', role: '+ 50.000 abonnés cumulés', img: 'assets/capitainekebab-avis.jpg', featured: true },
+    { quote: "« Hyper réactif, à l'écoute, et je recommande fortement de lui demander son avis, il a de très bonnes idées ! A travaillé avec Mathieu pour différents types de visuels (minia, carrousels, affiches d'événements etc). »", name: 'Vincent Soave', followers: 'Head of content Jody Cavalie', role: '+ 150.000 abonnés cumulés', img: 'assets/vincent-soave-avis.jpg', featured: true },
+    { quote: "« Cela fait maintenant plusieurs années que nous collaborons avec Mathieu, avec toujours le même plaisir. Il est d'une réactivité dingue (Combien sont-ils ?!), sait parfaitement s'adapter à des briefs très variés, avec des rendus qui ont toujours donné pleine satisfaction, bien avant des deadlines pourtant très serrées. Au-delà de l'aspect professionnel, c'est un bonheur de travailler avec Mathieu, qui est toujours d'excellente volonté, force de proposition, et d'une fiabilité absolue. Il nous aide grandement au développement de notre activité. »", name: 'PH Fouchier', followers: 'Producteur Associé · Téma', role: 'Personal branding & publicité corporate', img: 'assets/ph-fouchier-avis.jpg', featured: true },
+    { quote: "« Nous travaillons avec Mathieu sur l'ensemble de l'univers visuel de l'agence Téma. C'est lui qui a élaboré la DA de Humains TV, et il l'a déclinée avec la même justesse sur nos différents clients. Il comprend vite l'identité de chaque marque. Au-delà du talent, c'est sa réactivité qui fait la différence : disponible, rapide, toujours là quand il faut. On recommande sans hésiter ! »", name: 'Léa Pierre', followers: 'Responsable production & éditoriale · Téma', role: 'Personal branding & publicité corporate', img: 'assets/lea-pierre-avis.jpg', featured: true },
+    { quote: "« On travaille avec Mathieu depuis maintenant 4 ans. Sur 60 millions de vues, il n'a jamais raté une deadline. Flexible, réactif, et surtout il comprend ce qui fait cliquer. On dépasse régulièrement les 10% de CTR grâce à ses miniatures. C'est rare de trouver quelqu'un d'aussi fiable dans cet écosystème. »", name: 'Grand Angle', followers: 'Chaînes YouTube · Économie, Bitcoin & IA', role: '+700.000 abonnés cumulés', img: 'assets/grand-angle-avis.jpg', featured: true },
+  ];
+
+  faqsData = [
+    { q: "En combien de temps vais-je recevoir mon visuel ?", a: "La plupart des visuels sont livrés en <strong style=\"color:#fff\">moins de 12 heures</strong>. La rapidité est l'un de mes principaux atouts : je m'engage à vous répondre dans la journée et à traiter vos demandes le plus rapidement possible, même lorsqu'elles sont urgentes." },
+    { q: "Puis-je demander des retouches ?", a: "Bien sûr. Vous pouvez demander <strong style=\"color:#fff\">autant de retouches que nécessaire</strong> jusqu'à ce que le résultat corresponde parfaitement à vos attentes." },
+    { q: "Comment garantissez-vous la qualité de vos créations ?", a: "Avec <strong style=\"color:#fff\">plus de 10 ans d'expérience</strong> et plus de <strong style=\"color:#fff\">10 000 visuels réalisés</strong>, je conçois des designs pensés pour être à la fois esthétiques, efficaces et adaptés à vos objectifs." },
+    { q: "Comment se passe la communication ?", a: "Tous les échanges se font via <strong style=\"color:#fff\">WhatsApp</strong>. C'est le moyen le plus simple et le plus rapide pour communiquer, envoyer les fichiers et suivre l'avancement de vos demandes." },
+    { q: "Travaillez-vous avec tous les types de clients ?", a: "Oui. J'accompagne aussi bien des entrepreneurs, créateurs de contenu, PME que de grandes entreprises, dans des secteurs très variés. Cette diversité me permet de m'adapter rapidement à chaque projet." },
+    { q: "Comment fonctionne le paiement ?", a: "Les factures sont envoyées <strong style=\"color:#fff\">le 1er de chaque mois</strong>, pour l'ensemble des visuels réalisés le mois précédent. Vous disposez ensuite jusqu'à la fin du mois pour effectuer le règlement.<br><br><strong style=\"color:#fff\">Exemple :</strong> si nous réalisons <strong style=\"color:#fff\">25 visuels entre le 1er et le 31 janvier</strong>, vous recevrez une facture le <strong style=\"color:#fff\">1er février</strong> correspondant à <strong style=\"color:#fff\">25 × le prix convenu</strong>, avec un règlement à effectuer avant la fin du mois de février." },
+  ];
+
+  renderVals() {
+    const open = this.state.faqOpen;
+    const faqs = this.faqsData.map((f, i) => ({
+      q: f.q, a: React.createElement("span", { dangerouslySetInnerHTML: { __html: f.a } }),
+      open: open === i,
+      rot: open === i ? 'rotate(45deg)' : 'rotate(0deg)',
+      toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? -1 : i })),
+    }));
+    const mkReview = (r) => {
+      const c = r.name.replace(/[^0-9A-Za-zÀ-ÿ]/g, '');
+      return { ...r,
+        avatarEl: r.img
+          ? React.createElement('img',{src:r.img,alt:r.name,style:{flexShrink:0,width:42,height:42,borderRadius:'50%',objectFit:'cover',border:'1px solid rgba(255,255,255,.12)'}})
+          : React.createElement('div',{style:{flexShrink:0,width:42,height:42,borderRadius:'50%',background:'repeating-linear-gradient(135deg,rgba(255,255,255,.1) 0 6px,rgba(255,255,255,.03) 6px 12px)',border:'1px solid rgba(255,255,255,.1)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:15,fontWeight:600,color:'rgba(245,245,247,.5)'}}, (c[0]||'').toUpperCase()),
+        cardStyle: 'flex-shrink:0;width:430px;align-self:flex-start;display:flex;flex-direction:column;padding:26px 28px;border-radius:16px;' + (r.featured
+          ? 'border:1px solid rgba(31,168,245,.32);background:linear-gradient(165deg,rgba(31,168,245,.09),rgba(255,255,255,.02))'
+          : 'border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.022)') };
+    };
+    const half = Math.ceil(this.reviews.length / 2);
+    const r1 = this.reviews.slice(0, half).map(mkReview);
+    const r2 = this.reviews.slice(half).map(mkReview);
+    const avisRows = { row1: [...r1, ...r1], row2: [...r2, ...r2] };
+    return {
+      setRoot: (el) => {
+        if (el && !this._init) {
+          this._init = true;
+          this.root = el;
+          requestAnimationFrame(() => requestAnimationFrame(() => this.initFx()));
+        }
+      },
+      projects: this.projects.map(p => {
+        const coverEl = p.flat
+          ? React.createElement('img', { src: p.flat, alt: '', loading: 'lazy', style: { position: 'absolute', inset: '-20%', width: '140%', height: '140%', objectFit: 'cover', transform: 'rotate(-8deg) scale(1.18)' } })
+          : React.createElement('div', { style: { position: 'absolute', inset: '-20%', columns: String(p.cols || 3), columnGap: '6px', transform: 'rotate(-8deg) scale(1.18)' } },
+              (p.tiles || []).map((t, idx) => React.createElement('div', { key: idx, style: { breakInside: 'avoid', marginBottom: '6px', borderRadius: '7px', overflow: 'hidden' } },
+                React.createElement('img', { src: t.img, alt: '', loading: 'lazy', style: { width: '100%', height: 'auto', display: 'block' } }))));
+        return { ...p, coverEl, href: p.href || '#portfolio' };
+      }),
+      clientsLoop: (() => {
+        const imgs = { 'Pierre Gourdon':'assets/pierre-gourdon-avis.jpg', 'Les Geeks des Chiffres':'assets/geeks-chiffres-avis.jpg', 'Loic Durand':'assets/loic-durand-avis.jpg', 'Kameto':'assets/avatar-kameto.jpg', 'Alec Henry':'assets/avatar-alechenry.jpg', 'Alphacast':'assets/avatar-alphacast.jpg', 'FC Fleury 91':'assets/avatar-fcfleury91.svg', 'HumainsTV':'assets/avatar-humainstv.jpg', 'La Menace':'assets/avatar-lamenace.jpg', 'Numadeo':'assets/avatar-numadeo.png', 'Oussama Ammar':'assets/avatar-oussamaammar.jpg', 'UniversTennis':'assets/avatar-universtennis.jpg', 'PFUT':'assets/avatar-pfut.jpg', 'Skyyart':'assets/avatar-skyyart.jpg', 'ActuFoot':'assets/avatar-actufoot.png', 'Les Geeks des Chiffres':'assets/avatar-geekschiffres.jpg', 'Axoskill':'assets/avatar-axoskill.jpg', 'Edition Jikji':'assets/avatar-editionjikji.jpg', 'Conversations avant la fin du monde':'assets/avatar-conversations.jpg', 'Jean-Pierre Nadir':'assets/avatar-jpnadir.jpg', 'Charle Gave':'assets/avatar-charlegave.jpg', 'Grand Angle':'assets/avatar-grandangle.jpg', 'Illustre!':'assets/avatar-illustre.png', 'Loic Durand':'assets/avatar-loicdurand.jpg', 'Paf':'assets/avatar-paf.jpg', 'Concon TV':'assets/avatar-concontv.jpg', 'Téma':'assets/avatar-tema.jpg', 'PapelMedia':'assets/avatar-papelmedia.jpg', 'UniverseFootball':'assets/avatar-universefootball.png', 'Marignane-Gignac-Côte Bleue FC':'assets/avatar-marignane.png', 'Irvin Cardona':'assets/avatar-irvincardona.png', 'Thang Nguyen':'assets/avatar-thangnguyen.jpg', 'Gamze Kgln':'assets/avatar-gamzekgln.jpg', 'InterludeFrance':'assets/avatar-interludefrance.jpg', 'Box to box agency':'assets/avatar-boxtobox.jpg', 'Jody Cavalie':'assets/avatar-jodycavalie.jpg', 'Le Crayon':'assets/avatar-lecrayon.jpg', 'Maxime Lopez':'assets/avatar-maximelopez.png', 'Conkerax':'assets/avatar-conkerax.jpg', 'Michel Khoury':'assets/avatar-michelkhoury.jpg', 'Carolin Arthaud':'assets/avatar-carolinarthaud.jpg', 'Delphine Pinon':'assets/avatar-delphinepinon.png', 'Edouard Clerc':'assets/avatar-edouardclerc.jpg', 'Équipe des Comores de football':'assets/avatar-comores.png', 'Janine Bonaggiunta':'assets/avatar-janine.jpg', 'Martin Blachier':'assets/avatar-martinblachier.jpg', 'Laurence Plumey':'assets/avatar-laurenceplumey.jpg', 'Entrepreneurs.com':'assets/avatar-entrepreneurscom.png', 'Maud Grenier':'assets/avatar-maudgrenier.jpg', 'Capitaine Kebab':'assets/avatar-capitainekebab.jpg', 'Le Déclic':'assets/avatar-ledeclic.jpg' };
+        const mk = (name) => { const c = name.replace(/[^0-9A-Za-zÀ-ÿ]/g, ''); const img = imgs[name] || null; const initial = (c[0]||'').toUpperCase(); const avatarEl = img ? React.createElement('img',{src:img,alt:name,style:{width:38,height:38,borderRadius:'50%',objectFit:'cover',flexShrink:0,background:'#fff',border:'1px solid rgba(10,10,10,.10)',boxShadow:'inset 0 0 0 1px rgba(255,255,255,.6)'}}) : React.createElement('div',{style:{width:38,height:38,borderRadius:'50%',background:'#dde9f3',color:'#1d6fa3',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:700,fontSize:14,flexShrink:0,fontFamily:"'Geist',sans-serif"}}, initial); return { name, initial, img, hasImg: !!img, noImg: !img, cta: false, normal: true, avatarEl }; };
+        const seq = [...this.clients.map(mk), { name: 'Pourquoi pas vous ?', initial: '?', cta: true, normal: false }];
+        return [...seq, ...seq];
+      })(),
+      reviews: this.reviews.map((r) => {
+        const c = r.name.replace(/[^0-9A-Za-zÀ-ÿ]/g, '');
+        return { ...r, initial: (c[0] || '').toUpperCase(), noImg: !r.img, hasImg: !!r.img,
+          avatarEl: r.img
+            ? React.createElement('img',{src:r.img,alt:r.name,style:{flexShrink:0,width:42,height:42,borderRadius:'50%',objectFit:'cover',border:'1px solid rgba(255,255,255,.12)'}})
+            : React.createElement('div',{style:{flexShrink:0,width:42,height:42,borderRadius:'50%',background:'repeating-linear-gradient(135deg,rgba(255,255,255,.1) 0 6px,rgba(255,255,255,.03) 6px 12px)',border:'1px solid rgba(255,255,255,.1)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:15,fontWeight:600,color:'rgba(245,245,247,.5)'}}, (c[0]||'').toUpperCase()),
+          hasLink: !!r.link, noLink: !r.link,
+          cardStyle: 'break-inside:avoid;margin:0 0 16px;padding:22px;border-radius:16px;' + (r.featured
+            ? 'border:1px solid rgba(31,168,245,.32);background:linear-gradient(165deg,rgba(31,168,245,.09),rgba(255,255,255,.02))'
+            : 'border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.022)') };
+      }),
+      reviewsRow1: avisRows.row1,
+      reviewsRow2: avisRows.row2,
+      faqs,
+    };
+  }
+
+  initFx() {
+    window.__fxRan = (window.__fxRan || 0) + 1;
+    if (this._fxDone) return;
+    this._fxDone = true;
+    const root = this.root || document;
+
+    // Scroll reveal (manual viewport check — reliable everywhere)
+    const reveals = [...root.querySelectorAll('[data-reveal]')];
+    reveals.forEach(el => {
+      const d = el.getAttribute('data-reveal-delay') || 0;
+      el.style.transition = 'opacity .85s cubic-bezier(.16,1,.3,1) ' + d + 'ms, transform .85s cubic-bezier(.16,1,.3,1) ' + d + 'ms';
+    });
+    const checkReveal = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      for (let i = reveals.length - 1; i >= 0; i--) {
+        const el = reveals[i];
+        const top = el.getBoundingClientRect().top;
+        if (top < vh * 0.9) {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          const anims = el.querySelectorAll('[data-title-anim]');
+          if (anims.length) anims.forEach(a => { a.style.animationPlayState = 'running'; });
+          reveals.splice(i, 1);
+        }
+      }
+    };
+    checkReveal();
+    window.addEventListener('scroll', checkReveal, { passive: true });
+    window.addEventListener('resize', checkReveal, { passive: true });
+
+    // Portfolio card hover
+    // Start review marquees only after layout/fonts/images settle (no jump on arrival)
+    const startAvis = () => root.querySelectorAll('[data-avis-track]').forEach(t => { t.style.animationPlayState = 'running'; });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => requestAnimationFrame(() => requestAnimationFrame(startAvis)));
+    }
+    setTimeout(startAvis, 400);
+
+    // Mobile menu toggle    const menuToggle = root.querySelector('[data-menu-toggle]');
+    const mobileMenu = root.querySelector('[data-mobile-menu]');
+    if (menuToggle && mobileMenu) {
+      let mOpen = false;
+      const setMenu = (v) => { mOpen = v; mobileMenu.style.display = v ? 'flex' : 'none'; };
+      menuToggle.addEventListener('click', (e) => { e.stopPropagation(); setMenu(!mOpen); });
+      mobileMenu.querySelectorAll('[data-menu-link]').forEach(a => a.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('click', (e) => { if (mOpen && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) setMenu(false); });
+    }
+
+    // Portfolio card hover
+    root.querySelectorAll('[data-card]').forEach(card => {
+      const img = card.querySelector('[data-card-img]');
+      const ov = card.querySelector('[data-card-cta]');
+      card.addEventListener('mouseenter', () => {
+        if (img) img.style.transform = 'scale(1.05)';
+        if (ov) { ov.style.opacity = '1'; ov.style.transform = 'translateY(0)'; }
+        card.style.boxShadow = '0 34px 64px -22px rgba(0,0,0,.85), 0 0 0 1px rgba(31,168,245,.45)';
+      });
+      card.addEventListener('mouseleave', () => {
+        if (img) img.style.transform = 'scale(1)';
+        if (ov) { ov.style.opacity = '0'; ov.style.transform = 'translateY(7px)'; }
+        card.style.boxShadow = '0 1px 0 rgba(255,255,255,.04)';
+      });
+    });
+
+    // Subtle tilt on service cards
+    root.querySelectorAll('[data-tilt]').forEach(el => {
+      el.addEventListener('mousemove', (ev) => {
+        const r = el.getBoundingClientRect();
+        const px = (ev.clientX - r.left) / r.width - 0.5;
+        const py = (ev.clientY - r.top) / r.height - 0.5;
+        el.style.transform = 'perspective(900px) rotateY(' + (px * 5) + 'deg) rotateX(' + (-py * 5) + 'deg) translateY(-3px)';
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = 'perspective(900px) rotateY(0) rotateX(0) translateY(0)';
+      });
+    });
+
+    // Services secondary cards: reveal arrow + lift icon on hover
+    root.querySelectorAll('[data-scard]').forEach(card => {
+      const arrow = card.querySelector('[data-sarrow]');
+      const icon = card.querySelector('[data-sicon]');
+      card.addEventListener('mouseenter', () => {
+        if (arrow) { arrow.style.opacity = '1'; arrow.style.transform = 'translate(0,0)'; }
+        if (icon) { icon.style.transform = 'translateY(-4px) scale(1.06)'; icon.style.boxShadow = '0 14px 32px -12px rgba(31,168,245,.85)'; icon.style.borderColor = 'rgba(31,168,245,.7)'; }
+      });
+      card.addEventListener('mouseleave', () => {
+        if (arrow) { arrow.style.opacity = '0'; arrow.style.transform = 'translate(-6px,6px)'; }
+        if (icon) { icon.style.transform = 'none'; icon.style.boxShadow = '0 8px 24px -14px rgba(31,168,245,.6)'; icon.style.borderColor = 'rgba(31,168,245,.35)'; }
+      });
+    });
+
+    // Services showcase slider: auto-rotate + clickable dots
+    const slider = root.querySelector('[data-slider]');
+    if (slider) {
+      const slides = [...slider.querySelectorAll('[data-slide]')];
+      const dots = [...slider.querySelectorAll('[data-dot]')];
+      let cur = 0, timer = null;
+      const go = (n) => {
+        cur = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => {
+          const on = i === cur;
+          s.style.opacity = on ? '1' : '0';
+          s.style.transform = on ? 'scale(1)' : 'scale(1.05)';
+          s.style.zIndex = on ? '2' : '1';
+        });
+        dots.forEach((d, i) => {
+          const on = i === cur;
+          d.style.width = on ? '24px' : '7px';
+          d.style.background = on ? '#1FA8F5' : 'rgba(255,255,255,.22)';
+        });
+      };
+      const start = () => { stop(); timer = setInterval(() => go(cur + 1), 3200); };
+      const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+      dots.forEach((d, i) => d.addEventListener('click', () => { go(i); start(); }));
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      start();
+    }
+
+    // Avis : « Voir tous les avis » expands the masonry
+    const avisBtn = root.querySelector('[data-avis-more]');
+    const avisMason = root.querySelector('[data-avis-mason]');
+    const avisFade = root.querySelector('[data-avis-fade]');
+    if (avisBtn && avisMason) {
+      avisBtn.addEventListener('click', () => {
+        avisMason.style.maxHeight = avisMason.scrollHeight + 'px';
+        if (avisFade) avisFade.style.opacity = '0';
+        avisBtn.style.display = 'none';
+      });
+    }
+
+    // Floating nav scrollspy
+    const navLinks = [...root.querySelectorAll('[data-nav]')];
+    if (navLinks.length) {
+      const setActive = (id) => navLinks.forEach(a => {
+        const on = a.getAttribute('data-nav') === id;
+        a.style.color = on ? '#fff' : 'rgba(245,245,247,.6)';
+        a.style.borderColor = on ? 'rgba(255,255,255,.16)' : 'transparent';
+        a.style.background = on ? 'rgba(255,255,255,.05)' : 'transparent';
+      });
+      const navScroll = () => {
+        let cur = 'top';
+        navLinks.forEach(a => {
+          const id = a.getAttribute('data-nav');
+          const el = id === 'top' ? root : document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 130) cur = id;
+        });
+        setActive(cur);
+      };
+      window.addEventListener('scroll', navScroll, { passive: true });
+      navScroll();
+    }
+
+    // Hero parallax following the mouse
+    const hero = root.querySelector('[data-hero]');
+    if (hero) {
+      const items = [...hero.querySelectorAll('[data-px]')];
+      hero.addEventListener('mousemove', (ev) => {
+        if (this._raf) return;
+        const r = hero.getBoundingClientRect();
+        const cx = (ev.clientX - r.left) / r.width - 0.5;
+        const cy = (ev.clientY - r.top) / r.height - 0.5;
+        this._raf = requestAnimationFrame(() => {
+          this._raf = null;
+          items.forEach(it => {
+            const s = parseFloat(it.getAttribute('data-px'));
+            const base = it.getAttribute('data-base') || '';
+            it.style.transform = base + ' translate(' + (cx * s) + 'px,' + (cy * s) + 'px)';
+          });
+        });
+      });
+      hero.addEventListener('mouseleave', () => {
+        items.forEach(it => { it.style.transform = it.getAttribute('data-base') || ''; });
+      });
+    }
+  }
+}
+</script>
+</body>
+</html>

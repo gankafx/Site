@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#0A0A0A;color:#F5F5F7;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  a{color:inherit;text-decoration:none}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#0A0A0A">
+  <header style="position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:rgba(10,10,10,.72);border-bottom:1px solid rgba(255,255,255,.07)">
+    <div style="max-width:1320px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <a href="Ganka.dc.html#portfolio" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;color:rgba(245,245,247,.7);transition:color .25s" style-hover="color:#fff"><span style="font-size:17px">←</span> Retour au site</a>
+      <div style="display:flex;align-items:center;gap:10px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,247,.45)"><span style="width:7px;height:7px;border-radius:50%;background:#1FA8F5;box-shadow:0 0 10px #1FA8F5"></span>Galerie</div>
+    </div>
+  </header>
+
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(48px,7vh,86px) 32px 30px">
+    <div style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#1FA8F5;margin-bottom:18px">Couvertures livres</div>
+    <h1 style="font-size:clamp(40px,6.5vw,82px);font-weight:700;letter-spacing:-.035em;line-height:1;margin:0 0 20px">Éditions Jikji.</h1>
+    <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:rgba(245,245,247,.55);max-width:720px;margin:0">Création de couvertures de livres pour les Éditions Jikji, avec des visuels pensés pour refléter l'univers de chaque ouvrage, attirer l'attention des lecteurs et valoriser l'identité éditoriale.</p>
+  </section>
+
+  <section style="max-width:1320px;margin:0 auto;padding:24px 32px 100px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:clamp(48px,5.5vw,82px) clamp(40px,4.5vw,66px)">
+      <sc-for list="{{ shots }}" as="s" hint-placeholder-count="23">
+        <div style="perspective:1600px;display:flex;justify-content:center;align-items:flex-end">
+          <div style="position:relative;transform-style:preserve-3d;transform:rotateY(-26deg);transition:transform .65s cubic-bezier(.16,1,.3,1)" style-hover="transform:rotateY(-11deg)">
+            <div style="position:absolute;left:8%;right:0;bottom:-16px;height:20px;background:rgba(0,0,0,.6);filter:blur(12px);border-radius:50%;transform:rotateX(80deg) scale(1.04,1.6);transform-origin:center;pointer-events:none"></div>
+            <div style="position:absolute;top:1.5%;left:100%;height:97%;width:30px;transform-origin:left center;transform:rotateY(64deg);background:repeating-linear-gradient(180deg,#f7f4ec 0 1.5px,#c9c4b4 1.5px 3px);border-radius:0 2px 2px 0;box-shadow:inset -8px 0 12px rgba(0,0,0,.22)"></div>
+            {{ s }}
+            <div style="position:absolute;top:0;left:0;width:13%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.5),rgba(0,0,0,.12) 62%,transparent);border-radius:3px 0 0 3px;pointer-events:none"></div>
+            <div style="position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(90deg,rgba(255,255,255,.22),transparent);pointer-events:none"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(106deg,rgba(255,255,255,.22),rgba(255,255,255,.04) 20%,transparent 42%);border-radius:3px 6px 6px 3px;pointer-events:none"></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const paths = Array.from({ length: 23 }, (_, i) => 'assets/gallery-jikji/jk-' + String(i + 1).padStart(2, '0') + '.png');
+    const shots = paths.map((p, i) => React.createElement('img', {
+      key: i, src: p, loading: 'lazy', alt: 'Couverture livre ' + (i + 1),
+      style: { display: 'block', width: '100%', borderRadius: '3px 6px 6px 3px', boxShadow: '0 22px 34px -12px rgba(0,0,0,.75)' }
+    }));
+    return { shots, count: paths.length };
+  }
+}
+</script>
+</body>
+</html>
