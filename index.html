@@ -665,9 +665,7 @@ function setActiveNav() {
   });
 
   navLinks.forEach(link => {
-    link.style.color = link.dataset.nav === current
-      ? '#1FA8F5'
-      : 'rgba(245,245,247,.6)';
+link.style.setProperty("color", link.dataset.nav === current ? "#1FA8F5" : "rgba(245,245,247,.6)", "important");
   });
 }
 
