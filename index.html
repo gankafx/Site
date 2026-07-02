@@ -650,28 +650,28 @@ class Component extends DCLogic {
 }
 </script>
 <script>
-const links = document.querySelectorAll('nav a[href^="#"]');
+const navLinks = document.querySelectorAll("[data-nav]");
 
-function updateActiveLink() {
-  let current = "";
+function updateNav() {
+  let current = "top";
 
   document.querySelectorAll("section[id]").forEach(section => {
-    const sectionTop = section.offsetTop - 160;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute("id");
+    if (window.scrollY >= section.offsetTop - 120) {
+      current = section.id;
     }
   });
 
-  links.forEach(link => {
-    link.style.color = "";
-    if (link.getAttribute("href") === "#" + current) {
+  navLinks.forEach(link => {
+    if (link.dataset.nav === current) {
       link.style.color = "#1FA8F5";
+    } else {
+      link.style.color = "rgba(245,245,247,.6)";
     }
   });
 }
 
-window.addEventListener("scroll", updateActiveLink);
-updateActiveLink();
+window.addEventListener("scroll", updateNav);
+updateNav();
 </script>
 </body>
 </html>
