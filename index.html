@@ -649,5 +649,58 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script>
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("[data-nav]");
+
+function updateActiveNav() {
+    let current = "top";
+
+    sections.forEach(section => {
+        const top = section.offsetTop - 120;
+
+        if (window.scrollY >= top) {
+            current = section.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+        if (link.dataset.nav === current) {
+            link.style.color = "#1FA8F5";
+        } else {
+            link.style.color = "rgba(245,245,247,.6)";
+        }
+    });
+}
+
+window.addEventListener("scroll", updateActiveNav);
+updateActiveNav();
+</script>
+<script>
+const navLinks = document.querySelectorAll('[data-nav]');
+const sections = ['top', 'portfolio', 'process', 'avis', 'faq']
+  .map(id => document.getElementById(id))
+  .filter(Boolean);
+
+function setActiveNav() {
+  let current = 'top';
+
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 180) {
+      current = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.style.color = link.dataset.nav === current
+      ? '#1FA8F5'
+      : 'rgba(245,245,247,.6)';
+  });
+}
+
+window.addEventListener('scroll', setActiveNav);
+window.addEventListener('load', setActiveNav);
+setActiveNav();
+</script>
 </body>
 </html>
