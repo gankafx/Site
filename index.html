@@ -649,5 +649,29 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script>
+const links = document.querySelectorAll('nav a[href^="#"]');
+
+function updateActiveLink() {
+  let current = "";
+
+  document.querySelectorAll("section[id]").forEach(section => {
+    const sectionTop = section.offsetTop - 160;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  links.forEach(link => {
+    link.style.color = "";
+    if (link.getAttribute("href") === "#" + current) {
+      link.style.color = "#1FA8F5";
+    }
+  });
+}
+
+window.addEventListener("scroll", updateActiveLink);
+updateActiveLink();
+</script>
 </body>
 </html>
