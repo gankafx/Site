@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" type="image/png" href="/favicon.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
@@ -142,7 +143,7 @@ details[data-cta][open] [data-cta-panel]{animation:ctaReveal .45s cubic-bezier(.
 <section style="background:#fff;padding:40px 0;overflow:hidden">
   <div style="max-width:1280px;margin:0 auto;padding:0 32px 22px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(10,10,10,.45);text-align:center">Ils m'ont fait confiance</div>
   <div style="display:flex;width:max-content;animation:marquee 150s linear infinite">
-    <div style="display:flex;align-items:center;gap:16px;padding:0 8px">
+    <div style="display:flex;align-items:center;gap:18px;position:relative;z-index:9999;pointer-events:auto">
       <sc-for list="{{ clientsLoop }}" as="c" hint-placeholder-count="12">
         <sc-if value="{{ c.cta }}" hint-placeholder-val="{{ false }}">
           <a href="#contact" style="display:flex;align-items:center;gap:9px;padding:11px 22px;border-radius:100px;background:#1FA8F5;flex-shrink:0;box-shadow:0 10px 22px -8px rgba(31,168,245,.7);text-decoration:none;cursor:pointer">
@@ -357,10 +358,9 @@ details[data-cta][open] [data-cta-panel]{animation:ctaReveal .45s cubic-bezier(.
   <div style="max-width:1280px;margin:0 auto;padding:24px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;font-size:13px;color:rgba(245,245,247,.35)">
     <span>© 2026 Ganka. Tous droits réservés.</span>
     <div style="display:flex;align-items:center;gap:18px">
-      <a href="https://instagram.com/ganka" target="_blank" rel="noopener noreferrer" title="Instagram" style="color:#1FA8F5;display:flex;transition:opacity .2s" style-hover="opacity:.7"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://www.linkedin.com/in/mathieu-rubichon-644a972b8/" target="_blank" rel="noopener noreferrer" title="LinkedIn" style="color:#1FA8F5;display:flex;transition:opacity .2s" style-hover="opacity:.7"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg></a>
-      <a href="https://x.com/gankafx" target="_blank" rel="noopener noreferrer" title="X" style="color:#1FA8F5;display:flex;transition:opacity .2s" style-hover="opacity:.7"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8-9.2L1 2h7l4.8 6.3zM17.7 20h1.9L7.4 4H5.4z"/></svg></a>
-    </div>
+      <a href="https://instagram.com/gankafx" target="_blank" rel="noopener noreferrer" title="Instagram" style="color:#1FA8F5;display:flex;transition:opacity .2s;cursor:pointer;position:relative;z-index:9999;pointer-events:auto" style-hover="opacity:.7"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.linkedin.com/in/mathieu-rubichon-644a972b8/" target="_blank" rel="noopener noreferrer" title="LinkedIn" style="color:#1FA8F5;display:flex;transition:opacity .2s;cursor:pointer;position:relative;z-index:9999;pointer-events:auto" style-hover="opacity:.7"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg></a>
+      <a href="https://x.com/gankafx" target="_blank" rel="noopener noreferrer" title="X" style="color:#1FA8F5;display:flex;transition:opacity .2s;cursor:pointer;position:relative;z-index:9999;pointer-events:auto" style-hover="opacity:.7"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8-9.2L1 2h7l4.8 6.3zM17.7 20h1.9L7.4 4H5.4z"/></svg></a>
     <span style="font-family:'Geist Mono',monospace;letter-spacing:.05em">Conçu pour convertir.</span>
   </div>
 </footer>
@@ -648,33 +648,6 @@ class Component extends DCLogic {
     }
   }
 }
-</script>
-<script>
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("[data-nav]");
-
-function updateActiveNav() {
-    let current = "top";
-
-    sections.forEach(section => {
-        const top = section.offsetTop - 120;
-
-        if (window.scrollY >= top) {
-            current = section.id;
-        }
-    });
-
-    navLinks.forEach(link => {
-        if (link.dataset.nav === current) {
-            link.style.color = "#1FA8F5";
-        } else {
-            link.style.color = "rgba(245,245,247,.6)";
-        }
-    });
-}
-
-window.addEventListener("scroll", updateActiveNav);
-updateActiveNav();
 </script>
 <script>
 const navLinks = document.querySelectorAll('[data-nav]');
