@@ -683,5 +683,28 @@ window.addEventListener('scroll', setActiveNav);
 window.addEventListener('load', setActiveNav);
 setActiveNav();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const burger = document.querySelector("[data-menu-toggle]");
+  const menu = document.querySelector("[data-mobile-menu]");
+  const links = document.querySelectorAll("[data-menu-link]");
+
+  if (!burger || !menu) return;
+
+  burger.addEventListener("click", function () {
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+    }
+  });
+
+  links.forEach(function (link) {
+    link.addEventListener("click", function () {
+      menu.style.display = "none";
+    });
+  });
+});
+</script>
 </body>
 </html>
